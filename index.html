@@ -1,324 +1,425 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Oculus Lumen</title>
-  <meta name="description" content="Oculus Lumen LLC is a holding, governance, and control entity." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional loom access for temporary lease in Toledo, Ohio region. 30-day minimum, as long as needed.">
+    <title>Accessus Publica - Professional Tools. Temporary Access.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    :root{
-      --bg:#0a0c10;
-      --panel:#111520;
-      --text:#eef1f7;
-      --muted:#9aa3b8;
-      --line:rgba(255,255,255,.10);
-      --accent:#7d8cff;
-      --radius:14px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-    }
+        body {
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
 
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      background:var(--bg);
-      color:var(--text);
-      font-family:var(--sans);
-      line-height:1.55;
-    }
+        h1, h2, h3, h4 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
 
-    a{color:inherit;text-decoration:none}
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 1.75rem; margin-top: 3rem; }
+        h3 { font-size: 1.25rem; margin-top: 1.5rem; }
 
-    /* Layout */
-    .container{max-width:980px;margin:0 auto;padding:32px 20px 72px}
-    header{
-      border-bottom:1px solid var(--line);
-      background:rgba(10,12,16,.85);
-      backdrop-filter:blur(8px);
-      position:sticky;top:0;z-index:10;
-    }
-    .nav{
-      max-width:980px;
-      margin:0 auto;
-      padding:18px 20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-    }
+        a {
+            color: #4a5568;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
 
-    /* Brand */
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-    }
-    .brand strong{
-      font-size:15px;
-      letter-spacing:.3px;
-    }
-    .brand span{
-      font-size:12px;
-      color:var(--muted);
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
+        a:hover {
+            color: #1a1a1a;
+        }
 
-    nav a{
-      font-size:13px;
-      color:var(--muted);
-      margin-left:16px;
-    }
-    nav a:hover{color:var(--text)}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
 
-    /* Sections */
-    section{margin-top:56px}
-    h1{
-      font-size:38px;
-      line-height:1.15;
-      letter-spacing:-.4px;
-      margin:0 0 16px;
-    }
-    h2{
-      font-size:14px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin:0 0 14px;
-    }
-    h3{
-      margin:0 0 6px;
-      font-size:17px;
-    }
-    p{
-      margin:0 0 10px;
-      color:#d6dbea;
-      max-width:70ch;
-    }
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-bottom: 2px solid #e5e5e5;
+            margin-bottom: 3rem;
+        }
 
-    /* Cards */
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:20px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-    @media (max-width:800px){
-      .grid{grid-template-columns:1fr}
-      h1{font-size:30px}
-    }
+        header h1 {
+            margin-bottom: 0.5rem;
+        }
 
-    /* Pills */
-    .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .pill{
-      font-family:var(--mono);
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      color:var(--muted);
-    }
+        header .tagline {
+            font-size: 1.25rem;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
 
-    /* Status block */
-    .status{
-      font-family:var(--mono);
-      font-size:12.5px;
-      background:#07090e;
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:14px;
-      color:#cfd5ea;
-      white-space:pre-wrap;
-    }
+        header .pilot-info {
+            font-size: 1rem;
+            color: #4a5568;
+        }
 
-    footer{
-      margin-top:72px;
-      padding-top:24px;
-      border-top:1px solid var(--line);
-      font-size:13px;
-      color:var(--muted);
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-  </style>
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #4a5568;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #4a5568;
+            border: 2px solid #4a5568;
+        }
+
+        .btn-secondary:hover {
+            background: #4a5568;
+            color: white;
+        }
+
+        .info-box {
+            background: white;
+            border: 2px solid #4a5568;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-box h3 {
+            color: #4a5568;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            margin-bottom: 0.75rem;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box strong {
+            color: #1a1a1a;
+        }
+
+        .info-box .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .info-box .note {
+            font-size: 0.875rem;
+            color: #4a5568;
+            margin-top: 0.5rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .emphasis {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        blockquote {
+            border-left: 4px solid #4a5568;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: #4a5568;
+        }
+
+        footer {
+            border-top: 2px solid #e5e5e5;
+            padding-top: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            color: #4a5568;
+            font-size: 0.875rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .contact-box h3 {
+            margin-top: 0;
+        }
+
+        .contact-box .email {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .container { padding: 1.5rem 1rem; }
+            header { padding: 2rem 0 1.5rem; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+        }
+    </style>
 </head>
-
 <body>
-<header>
-  <div class="nav">
-    <div class="brand">
-      <strong>Oculus Lumen</strong>
-      <span>Holding • Governance • Control</span>
+    <div class="container">
+        <header>
+            <h1>ACCESSUS PUBLICA</h1>
+            <p class="tagline">Professional Tools. Temporary Access.</p>
+            <p class="pilot-info">Phase 0 Pilot: Professional Loom<br>
+            Toledo Region • 30+ Day Lease</p>
+            
+            <div class="cta-buttons">
+                <a href="#terms" class="btn btn-primary">View Terms & Pricing</a>
+                <a href="#inquiry" class="btn btn-secondary">Inquire Now</a>
+            </div>
+        </header>
+
+        <section id="what">
+            <h2>What This Is</h2>
+            <p>Accessus Publica provides temporary, paid access to professional-grade tools that are otherwise difficult to own, store, or justify full-time.</p>
+            
+            <p>We start with one asset. One geography. One question.</p>
+            
+            <p><strong>This is not a marketplace.</strong><br>
+            <strong>This is not a studio.</strong><br>
+            <strong>This is not instruction or community programming.</strong></p>
+            
+            <p>This is access.</p>
+        </section>
+
+        <section id="who">
+            <h2>Who This Is For</h2>
+            <p>This pilot is intentionally narrow. We are currently speaking with:</p>
+            <ul>
+                <li>Weaving & fiber guilds</li>
+                <li>Universities and colleges</li>
+                <li>Institutional studios</li>
+                <li>Teaching weavers with overflow demand</li>
+            </ul>
+            
+            <p>If you need temporary access to a professional loom for real work—this may fit.</p>
+            
+            <p>If you are looking for classes, shared studio space, or casual use—it will not.</p>
+        </section>
+
+        <section id="terms">
+            <h2>Terms & Pricing</h2>
+            
+            <div class="info-box">
+                <h3>Lease Terms</h3>
+                <p><strong>Minimum:</strong> 30 days</p>
+                <p><strong>Recommended:</strong> 90+ days for project completion</p>
+                <p><strong>Maximum:</strong> As long as needed</p>
+                <p class="note">Extensions available in 30-day increments (request ≥7 days before term end)</p>
+                <p class="note">No hourly or daily rentals</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Pricing (Phase 0 Pilot)</h3>
+                <p><strong>Pickup</strong></p>
+                <p class="price">$275–$300/month</p>
+                <p class="note">You arrange pickup from Toledo area</p>
+                
+                <p style="margin-top: 1.5rem;"><strong>Delivered</strong></p>
+                <p class="price">$325–$375/month</p>
+                <p class="note">Includes delivery, setup, and removal within 100-mile radius</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Deposit</h3>
+                <p><strong>Individual:</strong> $500</p>
+                <p><strong>Institution/Guild:</strong> $750–$1,000</p>
+                <p class="note">Deposit covers damage beyond normal wear, unauthorized modification, or missing components. Deposit is not revenue.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Insurance & Geography</h3>
+                <p><strong>Insurance:</strong> Held by Accessus Publica (no proof required from lessee)</p>
+                <p><strong>Geography:</strong> Within 100 miles of Toledo, Ohio</p>
+            </div>
+        </section>
+
+        <section id="pilot">
+            <h2>Phase 0 Pilot</h2>
+            
+            <h3>Objective</h3>
+            <p>To determine whether professional loom access generates repeat, paid utilization without owning a facility, vehicle fleet, or permanent inventory.</p>
+            <p>If it does, we proceed carefully. If it does not, we stop.</p>
+            <p class="emphasis">No sunk-cost continuation.</p>
+
+            <h3>The Loom</h3>
+            <p>Professional floor loom (Macomber / equivalent)</p>
+            <ul>
+                <li>Maintained and functional</li>
+                <li>Cleaned, inspected, insured</li>
+                <li>Not pristine</li>
+                <li>Not upgraded</li>
+                <li>Not bundled with supplies</li>
+            </ul>
+            <p>This pilot tests access, not perfection.</p>
+
+            <h3>What We're Learning</h3>
+            <p>This pilot helps us understand what works: pricing, delivery preferences, lease duration, and whether this model serves real demand.</p>
+            
+            <p>We are measuring:</p>
+            <ul>
+                <li>Price acceptance</li>
+                <li>Optimal lease duration (30 days? 90 days? Semester-length?)</li>
+                <li>Extension behavior (do lessees renew?)</li>
+                <li>Delivery vs pickup preference</li>
+                <li>Institutional vs guild demand</li>
+                <li>Logistics friction</li>
+            </ul>
+            
+            <p>Revenue matters. Learning matters more.</p>
+
+            <h3>What Happens After Phase 0</h3>
+            <p><strong>If the pilot succeeds:</strong></p>
+            <ul>
+                <li>Add 1–2 additional looms or adjacent fiber assets</li>
+                <li>Formalize referral pathways</li>
+                <li>Begin Phase 1 facility modeling (carefully)</li>
+            </ul>
+
+            <p><strong>If results are mixed:</strong></p>
+            <ul>
+                <li>Adjust pricing, radius, or terms once</li>
+                <li>Extend evaluation period</li>
+                <li>Re-evaluate</li>
+            </ul>
+
+            <p><strong>If demand doesn't materialize:</strong></p>
+            <ul>
+                <li>We exit cleanly and document findings</li>
+                <li>Loom is sold or repurposed</li>
+            </ul>
+
+            <p class="emphasis">Stopping cleanly is a strength, not a failure.</p>
+        </section>
+
+        <section id="about">
+            <h2>About Accessus Publica</h2>
+            
+            <h3>Why This Exists</h3>
+            <p>Accessus Publica exists to test whether temporary access to professional tools serves demand that ownership and studios don't.</p>
+            
+            <p>Phase 0 is a single-asset pilot to gather signal. If it works, we expand. If it doesn't, we document findings and move on.</p>
+
+            <h3>What We Believe</h3>
+            <ul>
+                <li>Ownership is often inefficient</li>
+                <li>Access can be dignified</li>
+                <li>Temporary infrastructure can be sufficient</li>
+                <li>Stopping cleanly is a strength</li>
+            </ul>
+
+            <h3>What This Is Not</h3>
+            <p>To avoid confusion:</p>
+            <ul>
+                <li>Not a teaching studio</li>
+                <li>Not a makerspace</li>
+                <li>Not a subscription service</li>
+                <li>Not a community program</li>
+                <li>Not a permanent facility</li>
+            </ul>
+            <p>We do not scale this by accident.</p>
+
+            <h3>The Principle</h3>
+            <blockquote>
+                "The loom is an instrument, not an identity."
+            </blockquote>
+            <p>It exists to test access. If it fails the test, it leaves.</p>
+
+            <h3>About the Name</h3>
+            <p><strong>Accessus Publica.</strong></p>
+            <p>Access—us—publica.</p>
+            <p>Access us. Publicly.</p>
+            <p>It's Latin for "approach to public resources."<br>
+            It's also exactly what we do.</p>
+        </section>
+
+        <section id="inquiry">
+            <h2>Inquire About Loom Access</h2>
+            
+            <div class="contact-box">
+                <h3>To Inquire</h3>
+                <p>If you represent a guild, institution, or studio and believe this access could serve your work, we'd like to hear from you.</p>
+                
+                <p class="email">
+                    <a href="mailto:mja@accessuspublica.com">mja@accessuspublica.com</a>
+                </p>
+                
+                <p><strong>Please include:</strong></p>
+                <ul>
+                    <li>Your name and organization (if applicable)</li>
+                    <li>How long do you anticipate needing the loom? (30 days minimum, 90+ recommended, longer terms available)</li>
+                    <li>Location (city/town)</li>
+                    <li>Brief description of intended use</li>
+                </ul>
+                
+                <p>We respond to all serious inquiries within 48 hours.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>Accessus Publica</strong> — Access. Us. Public.</p>
+            <p>Phase 0 Pilot — Toledo Region</p>
+            <p>No memberships. No hype. No permanence.</p>
+        </footer>
     </div>
-    <nav>
-      <a href="#purpose">Purpose</a>
-      <a href="#structure">Structure</a>
-      <a href="#subsidiaries">Subsidiaries</a>
-      <a href="#doctrine">Doctrine</a>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-
-  <!-- Hero -->
-  <section>
-    <h1>Governance infrastructure for durable ventures.</h1>
-    <p>
-      Oculus Lumen LLC operates as a holding, governance, and control entity.
-      It exists to authorize, constrain, and steward subsidiaries and internal systems,
-      prioritizing clarity, risk discipline, and reversible pilots over speed.
-    </p>
-
-    <div class="meta">
-      <span class="pill">Ohio LLC</span>
-      <span class="pill">Manager-Managed</span>
-      <span class="pill">Record-First</span>
-      <span class="pill">Pilot-Driven</span>
-    </div>
-  </section>
-
-  <!-- Status -->
-  <section>
-    <h2>Current State</h2>
-    <div class="card">
-      <div class="status">
-ACTIVE
-• Oculus Lumen
-
-AUTHORIZED (Next Pilots)
-• Heri Stilus
-• Accessus Publica
-• FO System
-
-PROPOSED
-• Amplio
-• Nexus
-• Limina Passus
-• Next Press
-• Extractum Terra
-      </div>
-    </div>
-  </section>
-
-  <!-- Purpose -->
-  <section id="purpose">
-    <h2>Purpose</h2>
-    <div class="card">
-      <h3>What Oculus Is</h3>
-      <p>
-        A control entity designed to hold assets and intellectual property,
-        establish governance rules, authorize operations, and terminate or pause
-        modules without threatening the system.
-      </p>
-    </div>
-  </section>
-
-  <!-- Structure -->
-  <section id="structure">
-    <h2>Structure</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Hard Memory Spine</h3>
-        <p>
-          Authoritative records are maintained as versioned artifacts:
-          registries, decision records, and append-only event logs.
-          If it is not recorded, it does not exist.
-        </p>
-        <div class="meta">
-          <span class="pill">Git = Source of Truth</span>
-          <span class="pill">SharePoint = Mirror</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Soft Analysis Layer</h3>
-        <p>
-          Planning, modeling, and drafting remain disposable.
-          Decisions only become real when promoted into the record
-          through explicit authorization.
-        </p>
-        <div class="meta">
-          <span class="pill">Disposable</span>
-          <span class="pill">Citation-Bound</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Subsidiaries -->
-  <section id="subsidiaries">
-    <h2>Subsidiaries</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Heri Stilus LLC</h3>
-        <p>Print-first publication system operating under pilot authorization.</p>
-        <div class="meta">
-          <span class="pill">AUTHORIZED</span>
-          <span class="pill">Ohio LLC</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Accessus Publica LLC</h3>
-        <p>Public access and interface entity operating under pilot authorization.</p>
-        <div class="meta">
-          <span class="pill">AUTHORIZED</span>
-          <span class="pill">Ohio LLC</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3>FO System</h3>
-        <p>Internal operating system authorized for the next pilot window.</p>
-        <div class="meta">
-          <span class="pill">AUTHORIZED</span>
-          <span class="pill">Internal</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Additional (Proposed)</h3>
-        <p>Amplio, Nexus, Limina Passus, Next Press, Extractum Terra.</p>
-        <div class="meta">
-          <span class="pill">PROPOSED</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Doctrine -->
-  <section id="doctrine">
-    <h2>Doctrine</h2>
-    <div class="card">
-      <p>
-        Subsidiaries operate only under explicit authorization, within defined scope,
-        and with reversible pilots. No module is essential. Drift of the system is not permitted.
-      </p>
-      <div class="meta">
-        <span class="pill">Authorization Gates</span>
-        <span class="pill">Scope Limits</span>
-        <span class="pill">Kill Switches</span>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div>
-      <strong>Oculus Lumen LLC</strong><br />
-      © <span id="year"></span> • Ohio
-    </div>
-    <div>Static informational site</div>
-  </footer>
-
-</main>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
